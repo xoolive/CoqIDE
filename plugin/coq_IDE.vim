@@ -329,9 +329,10 @@ endfunction
 " The functions for setting colors
 "
 "
-highlight CoqIDEDebug ctermbg=LightBlue guibg=LightBlue
-highlight SentToCoq ctermbg=LightGreen guibg=LightGreen
-highlight WillSendToCoq ctermbg=Yellow guibg=Yellow
+
+highlight CoqIDEDebug ctermbg=LightBlue guibg=#003399
+highlight SentToCoq ctermbg=LightGreen guibg=#336600
+highlight WillSendToCoq ctermbg=Yellow guibg=#996600
 highlight link CoqTopError Error
 
 function s:PatLine(cmp, nb)
@@ -775,7 +776,7 @@ function s:SendCommand(type, opt, s)
     let l:s = substitute(l:s, "'", '\&apos;', 'g')
     let l:s = substitute(l:s, '"', '\&quot;', 'g')
 
-    let l:query = '<call val="interp">' . l:s . '</call>'
+    let l:query = '<call val="interp" id="0">' . l:s . '</call>'
     let b:lastquerykind = 'interp'
     let b:lastquery = l:query
   elseif a:type == 'rewind'
